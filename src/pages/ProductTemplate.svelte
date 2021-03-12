@@ -12,6 +12,12 @@
   );
 </script>
 
+<svelte:head>
+  <title>
+    {!product ? 'single product' : product.title}
+  </title>
+</svelte:head>
+
 {#if !product}
   <Loading />
 {:else}
