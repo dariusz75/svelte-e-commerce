@@ -1,5 +1,10 @@
 <script>
   import { globalStore } from '../../stores/globalStore';
+  import cartStore from '../../stores/cartStore';
+
+  $: total = $cartStore.reduce((accumulator, currentItem) => {
+    return accumulator + currentItem.amount;
+  }, 0);
 </script>
 
 <div class="btn-cart-container">
@@ -11,5 +16,5 @@
   >
     <i class="fas fa-cart-plus" />
   </button>
-  <span class="btn-cart-items">10</span>
+  <span class="btn-cart-items">{total}</span>
 </div>
