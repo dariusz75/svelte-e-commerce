@@ -1,11 +1,12 @@
 <script>
+  import { globalStore } from '../../stores/globalStore';
 </script>
 
 <div class="btn-cart-container">
   <button
     class="btn-cart-toggle"
     on:click={() => {
-      console.log('chart button');
+      globalStore.toggleItem('cart', true);
     }}
   >
     <i class="fas fa-cart-plus" />

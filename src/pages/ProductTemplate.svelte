@@ -5,7 +5,7 @@
 
   import defaultProductsStore from '../stores/defaultProductsStore';
   import Loading from '../components/Loading.svelte';
-  import Products from '../components/Products/Products.svelte';
+  import { globalStore } from '../stores/globalStore';
 
   $: product = $defaultProductsStore.find(
     (product) => product.id === parseInt(id)
@@ -34,7 +34,7 @@
         <button
           class="btn btn-primary btn-block"
           on:click={() => {
-            console.log('add to card');
+            globalStore.toggleItem('cart', true);
           }}>add to cart</button
         >
       </article>
