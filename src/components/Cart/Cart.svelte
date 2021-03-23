@@ -3,6 +3,8 @@
   import { fly, fade, blur } from 'svelte/transition';
   import { globalStore } from '../../stores/globalStore';
 
+  import CartList from './CartList.svelte';
+
   let user = false;
 </script>
 
@@ -19,12 +21,12 @@
         >
           <i class="fas fa-window-close" />
         </button>
-        <h2 class="cart-title">your items</h2>
+        <h2 class="cart-title">your basket</h2>
         <span />
       </div>
       <!-- end of cart header -->
-      <!-- cart items -->
-      <p>cart items</p>
+
+      <CartList />
       <!-- end of cart items -->
       <!-- cart footer -->
       <div class="cart-footer">

@@ -3,7 +3,7 @@
   import cartStore from '../../stores/cartStore';
 
   $: total = $cartStore.reduce((accumulator, currentItem) => {
-    return accumulator + currentItem.amount;
+    return (accumulator += currentItem.amount);
   }, 0);
 </script>
 
