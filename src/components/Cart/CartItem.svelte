@@ -1,4 +1,6 @@
 <script>
+  import { removeItem, increaseAmount } from "../../stores/cartStore";
+
   export let id;
   export let image;
   export let title;
@@ -14,7 +16,7 @@
     <button
       class="cart-btn remove-btn"
       on:click={() => {
-        console.log('clicked');
+        removeItem(id);
       }}>remove</button
     >
   </div>
@@ -22,7 +24,7 @@
     <button
       class="cart-btn amount-btn"
       on:click={() => {
-        console.log('increase');
+        increaseAmount(id);
       }}
     >
       <i class="fas fa-chevron-up" />
@@ -31,7 +33,7 @@
     <button
       class="cart-btn amount-btn"
       on:click={() => {
-        console.log('decrease');
+        console.log("decrease");
       }}><i class="fas fa-chevron-down" /></button
     >
   </div>
