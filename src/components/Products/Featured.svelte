@@ -1,15 +1,12 @@
 <script>
-  export let title = '';
+  export let title = "";
 
-  import defaultProductsStore from '../../stores/defaultProductsStore';
+  import productsStore from "../../stores/productsStore";
 
-  import Product from './Product.svelte';
-  import Loading from '../Loading.svelte';
-  import Products from './Products.svelte';
+  import Product from "./Product.svelte";
+  import Loading from "../Loading.svelte";
 
-  $: featuredProducts = $defaultProductsStore.filter(
-    (product) => product.featured
-  );
+  $: featuredProducts = $productsStore.filter((product) => product.featured);
 </script>
 
 {#if featuredProducts.length === 0}

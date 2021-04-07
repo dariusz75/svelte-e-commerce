@@ -3,14 +3,12 @@
   // props
   export let id;
 
-  import defaultProductsStore from "../stores/defaultProductsStore";
+  import productsStore from "../stores/productsStore";
   import Loading from "../components/Loading.svelte";
   import { globalStore } from "../stores/globalStore";
   import { addToCart } from "../stores/cartStore";
 
-  $: product = $defaultProductsStore.find(
-    (product) => product.id === parseInt(id)
-  );
+  $: product = $productsStore.find((product) => product.id === parseInt(id));
 </script>
 
 <svelte:head>
