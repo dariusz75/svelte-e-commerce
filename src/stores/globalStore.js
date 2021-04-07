@@ -2,7 +2,7 @@ import { writable } from 'svelte/store';
 
 const store = writable({
   sidebar: false,
-  cart: true,
+  cart: false,
   alert: false,
 });
 
