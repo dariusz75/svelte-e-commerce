@@ -1,11 +1,9 @@
 <script>
-  import { Link } from 'svelte-routing';
-  import { fly, fade, blur } from 'svelte/transition';
-  import { globalStore } from '../../stores/globalStore';
-
-  import CartList from './CartList.svelte';
-
-  let user = false;
+  import { Link } from "svelte-routing";
+  import { fly, fade, blur } from "svelte/transition";
+  import { globalStore } from "../../stores/globalStore";
+  import user from "../../stores/userStore";
+  import CartList from "./CartList.svelte";
 </script>
 
 <div class="cart-overlay" transition:blur>
@@ -16,7 +14,7 @@
         <button
           class="btn-close"
           on:click={() => {
-            globalStore.toggleItem('cart', false);
+            globalStore.toggleItem("cart", false);
           }}
         >
           <i class="fas fa-window-close" />
@@ -30,12 +28,12 @@
       <!-- end of cart items -->
       <!-- cart footer -->
       <div class="cart-footer">
-        {#if user}
+        {#if $user.token}
           <Link
             class="btn btn-primary btn-block"
             to="/checkout"
             on:click={() => {
-              globalStore.toggleItem('cart', false);
+              globalStore.toggleItem("cart", false);
             }}>checkout</Link
           >
         {:else}
@@ -44,7 +42,7 @@
             <Link
               to="/login"
               on:click={() => {
-                globalStore.toggleItem('cart', false);
+                globalStore.toggleItem("cart", false);
               }}>login</Link
             >
           </p>
