@@ -1,9 +1,10 @@
 <script>
-  import { Link } from 'svelte-routing';
+  import { Link } from "svelte-routing";
 
-  import CartButton from '../Cart/CartButton.svelte';
+  import CartButton from "../Cart/CartButton.svelte";
+  import LoginLink from "../LoginLink.svelte";
 
-  import { links } from '../../constants/links';
+  import { links } from "../../constants/links";
 </script>
 
 <nav class="navbar">
@@ -20,6 +21,7 @@
         <img class="logo" src="/assets/images/logo.svg" alt="razers logo" />
       </Link>
       <div class="nav-aside">
+        <LoginLink />
         <CartButton />
       </div>
     </nav>
