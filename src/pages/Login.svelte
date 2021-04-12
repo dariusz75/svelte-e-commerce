@@ -1,4 +1,6 @@
 <script>
+  import {navigate} from "svelte-routing";
+  import globalStore from "../stores/globalStore";
   import loginUser from "../strapi/loginUser";
   import registerUser from "../strapi/registerUser";
 
@@ -7,7 +9,9 @@
   let username = "default username";
   let isMember = false;
 
-  $: isEmpty = !email || !password || !username;
+  $: isEmpty = !email || !password || !username || $globalStore.alert;
+
+  // TODO add alert 
 
   const toggleMember = () => {
     isMember = !isMember;
@@ -18,22 +22,26 @@
       username = "default username";
     }
   };
-  //TODO
+ 
 async function handleSubmit() {
-    let user;
+  globalStore.toggleItem('alert', true, 'loading data...');
 
-    if (isMember) {
-      user = await loginUser({email, password});
-    } else {
+  let user;
+
+  if (isMember) {
+    user = await loginUser({email, password});
+  } else {
       user = await registerUser({ email, password, username });
     }
 
-    if (user) {
-      //TODO
-    } else {
-      //TODO
-    }
-  };
+  if (user) {
+    globalStore.toggleItem('alert', true, 'welcome to the shop');
+    navigate('/products');
+    return
+  }
+
+  globalStore.toggleItem('alert', true, 'there was an error. please try again', true)
+};
 </script>
 
 <section class="form">
