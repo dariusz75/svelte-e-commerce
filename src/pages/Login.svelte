@@ -19,12 +19,18 @@
     }
   };
   //TODO
-  const handleSubmit = async () => {
+async function handleSubmit() {
     let user;
     if (isMember) {
       loginUser();
     } else {
-      registerUser();
+      user = await registerUser({ email, password, username });
+    }
+    console.log("user is", user);
+    if (user) {
+      //TODO
+    } else {
+      //TODO
     }
   };
 </script>
