@@ -2,12 +2,14 @@
   import user from "../stores/userStore";
   import { link, Link } from "svelte-routing";
 
+  import {logoutUser} from '../stores/userStore';
   import { globalStore } from "../stores/globalStore";
 
   // TODO
   // logout func
 
   const closeSidebar = () => {
+    logoutUser();
     globalStore.toggleItem("sidebar", false);
   };
 </script>

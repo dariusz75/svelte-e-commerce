@@ -27,7 +27,7 @@ async function handleSubmit() {
     } else {
       user = await registerUser({ email, password, username });
     }
-    console.log("user is", user);
+
     if (user) {
       //TODO
     } else {
