@@ -21,8 +21,9 @@
   //TODO
 async function handleSubmit() {
     let user;
+
     if (isMember) {
-      loginUser();
+      user = await loginUser({email, password});
     } else {
       user = await registerUser({ email, password, username });
     }

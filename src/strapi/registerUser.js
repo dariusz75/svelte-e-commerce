@@ -7,7 +7,7 @@ async function registerUser({ email, password, username }) {
     .catch((error) => console.log("There is an error: ", error));
 
   if (response) {
-    //TODO setup user
+    //TODO setupUser(response)
   }
 
   return response;
